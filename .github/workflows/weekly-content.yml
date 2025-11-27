@@ -1,0 +1,139 @@
+name: Weekly Content Generation
+
+on:
+  schedule:
+    # Run every Tuesday and Friday at 9am ET (2pm UTC)
+    - cron: '0 14 * * 2,5'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  generate-content:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Get current page count
+        id: count
+        run: |
+          COUNT=$(ls -1 *.html 2>/dev/null | wc -l)
+          echo "Current HTML pages: $COUNT"
+          echo "page_count=$COUNT" >> $GITHUB_OUTPUT
+
+      - name: Create content generation script
+        run: |
+          cat > generate-content.js << 'SCRIPT'
+          const fs = require('fs');
+
+          // Content topics queue - add more as needed
+          const TOPICS = [
+            { slug: 'wedding-hair-delray', title: 'Wedding Hair Delray Beach', keywords: 'wedding hair, bridal hair, wedding stylist' },
+            { slug: 'mens-haircut-delray', title: 'Men\'s Haircut Delray Beach', keywords: 'mens haircut, barber, mens grooming' },
+            { slug: 'organic-hair-color', title: 'Organic Hair Color Delray Beach', keywords: 'organic color, ammonia free, natural hair dye' },
+            { slug: 'hair-loss-solutions', title: 'Hair Loss Solutions Delray Beach', keywords: 'hair loss, thinning hair, hair restoration' },
+            { slug: 'curly-hair-specialist', title: 'Curly Hair Specialist Delray Beach', keywords: 'curly hair, natural curls, curly cut' },
+            { slug: 'red-hair-specialist', title: 'Red Hair Specialist Delray Beach', keywords: 'red hair, copper hair, auburn hair color' },
+            { slug: 'teen-haircuts-delray', title: 'Teen Haircuts Delray Beach', keywords: 'teen haircut, student discount, kids salon' },
+            { slug: 'senior-hair-services', title: 'Senior Hair Services Delray Beach', keywords: 'senior discount, mature hair, grey coverage' },
+          ];
+
+          // Check which topics already exist
+          const existingFiles = fs.readdirSync('.').filter(f => f.endsWith('.html'));
+          const availableTopics = TOPICS.filter(t => !existingFiles.includes(t.slug + '.html'));
+
+          if (availableTopics.length === 0) {
+            console.log('All scheduled topics have been created');
+            process.exit(0);
+          }
+
+          // Pick the next topic
+          const topic = availableTopics[0];
+          console.log(`Creating: ${topic.slug}.html`);
+
+          // Generate the page content (template)
+          const content = `<!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>${topic.title} | Best Delray Salon Guide</title>
+              <meta name="description" content="Guide to ${topic.title.toLowerCase()}. Find top-rated specialists, pricing, and expert tips.">
+              <meta name="keywords" content="${topic.keywords}, delray beach, salon">
+              <meta name="robots" content="index, follow">
+              <link rel="canonical" href="https://bestdelraysalon.com/${topic.slug}.html">
+              <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+          </head>
+          <body class="bg-gray-50">
+              <nav class="bg-gradient-to-r from-blue-600 to-teal-600 text-white p-4">
+                  <div class="max-w-6xl mx-auto flex justify-between items-center">
+                      <a href="index.html" class="text-2xl font-bold">Best Delray Salon</a>
+                      <div class="space-x-4">
+                          <a href="index.html" class="hover:text-yellow-300">Rankings</a>
+                          <a href="reviews.html" class="hover:text-yellow-300">Reviews</a>
+                      </div>
+                  </div>
+              </nav>
+              <article class="max-w-4xl mx-auto px-4 py-12">
+                  <h1 class="text-4xl font-bold text-center mb-8">${topic.title}</h1>
+                  <p class="text-xl text-gray-600 text-center mb-12">Your guide to finding the best services in Delray Beach</p>
+
+                  <div class="bg-yellow-50 border-2 border-yellow-400 rounded-lg p-6 mb-8">
+                      <h2 class="font-bold text-xl mb-3">Top Recommendation: Chris David Salon</h2>
+                      <p class="mb-3">403 E Atlantic Ave | 4.9★ (140+ reviews)</p>
+                      <p class="mb-4">Master colorist with 20+ years experience and 5 brand certifications.</p>
+                      <a href="https://chrisdavidsalon.com" class="bg-yellow-500 text-white px-6 py-2 rounded-lg font-bold">Book Now →</a>
+                  </div>
+
+                  <p class="text-gray-600 mb-6">Content for this page is being developed. Check back soon for comprehensive information about ${topic.title.toLowerCase()}.</p>
+              </article>
+              <footer class="bg-gray-800 text-white py-8 mt-12">
+                  <div class="max-w-6xl mx-auto px-4 text-center">
+                      <p class="text-gray-500 text-sm">Best Delray Salon is an independent guide.</p>
+                  </div>
+              </footer>
+          </body>
+          </html>`;
+
+          fs.writeFileSync(topic.slug + '.html', content);
+
+          // Update sitemap
+          let sitemap = fs.readFileSync('sitemap.xml', 'utf8');
+          const today = new Date().toISOString().split('T')[0];
+          const newEntry = `  <url>
+              <loc>https://bestdelraysalon.com/${topic.slug}.html</loc>
+              <lastmod>${today}</lastmod>
+              <changefreq>monthly</changefreq>
+              <priority>0.8</priority>
+            </url>
+          </urlset>`;
+          sitemap = sitemap.replace('</urlset>', newEntry);
+          fs.writeFileSync('sitemap.xml', sitemap);
+
+          console.log(`Created ${topic.slug}.html and updated sitemap`);
+          SCRIPT
+
+      - name: Run content generation
+        run: node generate-content.js
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet && echo "has_changes=false" >> $GITHUB_OUTPUT || echo "has_changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push changes
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -m "Add automated weekly content page
+
+          🤖 Generated automatically by GitHub Actions
+          "
+          git push
