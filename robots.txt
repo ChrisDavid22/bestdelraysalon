@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.bestdelraysalon.com/sitemap.xml
+Sitemap: https://bestdelraysalon.com/sitemap.xml
