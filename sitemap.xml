@@ -1,100 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bestdelraysalon.com/</loc>
+    <loc>https://www.bestdelraysalon.com/</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://bestdelraysalon.com/reviews.html</loc>
+    <loc>https://www.bestdelraysalon.com/balayage-guide.html</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.bestdelraysalon.com/color-correction-guide.html</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.bestdelraysalon.com/hair-salon-checklist.html</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bestdelraysalon.com/reviews.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://bestdelraysalon.com/specialties.html</loc>
+    <loc>https://www.bestdelraysalon.com/pricing.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bestdelraysalon.com/pricing.html</loc>
+    <loc>https://www.bestdelraysalon.com/grey-blending-guide.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bestdelraysalon.com/awards.html</loc>
+    <loc>https://www.bestdelraysalon.com/master-colorist-delray-beach.html</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.bestdelraysalon.com/boutique-vs-chain-salons.html</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bestdelraysalon.com/awards.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <!-- New Content Pages -->
   <url>
-    <loc>https://bestdelraysalon.com/balayage-guide.html</loc>
-    <lastmod>2025-11-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://bestdelraysalon.com/color-correction-guide.html</loc>
-    <lastmod>2025-11-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://bestdelraysalon.com/hair-salon-checklist.html</loc>
+    <loc>https://www.bestdelraysalon.com/specialties.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bestdelraysalon.com/hair-extensions-guide.html</loc>
+    <loc>https://www.bestdelraysalon.com/salon-prices-delray-beach.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Content Library Pages -->
   <url>
-    <loc>https://bestdelraysalon.com/keratin-treatment-guide.html</loc>
+    <loc>https://www.bestdelraysalon.com/content-library/wedding-hair-delray-beach.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://bestdelraysalon.com/grey-blending-guide.html</loc>
+    <loc>https://www.bestdelraysalon.com/content-library/mens-haircut-delray-beach.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://bestdelraysalon.com/wedding-hair-guide.html</loc>
+    <loc>https://www.bestdelraysalon.com/content-library/highlights-vs-balayage.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://bestdelraysalon.com/blonde-specialist-guide.html</loc>
+    <loc>https://www.bestdelraysalon.com/content-library/florida-humidity-hair-care.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://bestdelraysalon.com/master-colorist-delray-beach.html</loc>
+    <loc>https://www.bestdelraysalon.com/content-library/first-salon-visit-tips.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://bestdelraysalon.com/salon-prices-delray-beach.html</loc>
+    <loc>https://www.bestdelraysalon.com/content-library/hair-trends-2025.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://bestdelraysalon.com/boutique-vs-chain-salons.html</loc>
+    <loc>https://www.bestdelraysalon.com/content-library/postpartum-hair-loss.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bestdelraysalon.com/content-library/pool-chlorine-hair-protection.html</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bestdelraysalon.com/content-library/curly-hair-specialist-delray.html</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bestdelraysalon.com/content-library/red-hair-color-delray-beach.html</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
